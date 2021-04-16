@@ -7,8 +7,6 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    env:
-      ASANA_TOKEN: ${{ secrets.ASANA_PAT }}
     steps:
       - name: Set PR number
         run: |
@@ -16,7 +14,7 @@ jobs:
           echo -n "PR Number: $PR_NUMBER"
       - uses: everphone-gmbh/github-asana-action@master
         with:
-          asana-pat: $ASANA_TOKEN
+          asana-pat: ${{ secrets.ASANA_PAT }}
           action: 'add-comment'
           comment-id: "#pr:$PR_NUMBER"
           text: 'Pull Request: https://github.com/whisklabs/atlas/pull/$PR_NUMBER'
