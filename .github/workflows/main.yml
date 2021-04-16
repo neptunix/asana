@@ -2,7 +2,7 @@ name: Add Asana comment on PR created
 
 on:
   pull_request:
-    types: [opened,edited, labeled, unlabeled]]
+    types: [opened, edited, labeled, unlabeled]
 
 jobs:
   sync:
