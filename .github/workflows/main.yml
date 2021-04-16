@@ -15,7 +15,7 @@ jobs:
       - uses: everphone-gmbh/github-asana-action@master
         with:
           asana-pat: ${{ secrets.ASANA_PAT }}
-          action: 'add-comment'
+          action: "add-comment"
           comment-id: "#pr:$PR_NUMBER"
-          text: 'Pull Request: https://github.com/whisklabs/atlas/pull/$PR_NUMBER'
+          text: "Pull Request: https://github.com/whisklabs/atlas/pull/$PR_NUMBER"
           is-pinned: true
