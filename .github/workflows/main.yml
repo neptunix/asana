@@ -2,7 +2,7 @@ name: Add Asana comment on PR created
 
 on:
   pull_request:
-    types: [opened, edited, labeled, unlabeled]
+    types: [opened]
 
 jobs:
   sync:
@@ -16,5 +16,5 @@ jobs:
           asana-pat: ${{ secrets.ASANA_PAT }}
           action: "add-comment"
           comment-id: "#pr:${{ env.PR_NUMBER }}"
-          text: "Pull Request: https://github.com/whisklabs/atlas/pull/${{ env.PR_NUMBER }}"
+          text: "[CI] PR: https://github.com/whisklabs/atlas/pull/${{ env.PR_NUMBER }}"
           is-pinned: true
