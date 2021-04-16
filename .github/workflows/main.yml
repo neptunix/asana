@@ -1,0 +1,19 @@
+name: Add Asana comment on PR created
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: set pr number
+        run: echo "::set-env name=PR_NUMBER::$(echo -n "${GITHUB_REF}" | awk 'BEGIN { FS = "/" } ; { print $3 }')"
+      - uses: everphone-gmbh/github-asana-action@v4.0.0
+        with:
+          asana-pat: ${{ secrets.ASANA_PAT }}
+          action: 'add-comment'
+          comment-id: "#pr:${{env.PR_NUMBER}}"
+          text: 'Pull Request: https://github.com/whisklabs/atlas/pull/${{env.PR_NUMBER}}'
+          is-pinned: true
