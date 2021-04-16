@@ -17,5 +17,5 @@ jobs:
           asana-pat: ${{ secrets.ASANA_PAT }}
           action: "add-comment"
           comment-id: "#pr:$PR_NUMBER"
-          text: "Pull Request: https://github.com/whisklabs/atlas/pull/$PR_NUMBER"
+          text: "Pull Request: https://github.com/whisklabs/atlas/pull/$PR_NUMBER 1: ${{env.PR_NUMBER}} 2: ${{ env.PR_NUMBER }} 3: ${{PR_NUMBER}}"
           is-pinned: true
