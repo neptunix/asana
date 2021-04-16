@@ -11,10 +11,11 @@ jobs:
       - name: Post comment
         env:
           PR_NUMBER: ${{ github.event.number }}
+          USER: ${{ github.actor }}
         uses: everphone-gmbh/github-asana-action@master
         with:
           asana-pat: ${{ secrets.ASANA_PAT }}
           action: "add-comment"
           comment-id: "#pr:${{ env.PR_NUMBER }}"
-          text: "[CI] PR: https://github.com/whisklabs/atlas/pull/${{ env.PR_NUMBER }}"
+          text: "[CI] PR: https://github.com/whisklabs/atlas/pull/${{ env.PR_NUMBER }} (creator: ${{ env.USER }})"
           is-pinned: true
